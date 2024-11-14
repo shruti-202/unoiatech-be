@@ -6,6 +6,13 @@ const scrapeRoutes = require('./routes/scrape');
 
 const app = express();
 app.use(cors({ origin: '*' })); 
+app.use(
+  cors({
+    credentials: true,
+    origin: ["https://unoiatechh.vercel.app"],
+  })
+);
+
 app.use(express.json());
 
 mongoose.connect(process.env.DATABASE_URL, {
